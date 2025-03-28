@@ -6,3 +6,6 @@ nohup.out
 *.orig
 *extract_fest_omp*
 *.json
+venv/
+featen.sh
+*.swp
