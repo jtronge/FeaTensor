@@ -1662,19 +1662,28 @@ std::string all_mode_features_to_json(mode_based_features *features, tensor *T)
 	result += ", \"slices\": [";
 
     for (int i = 0; i < num_modes_for_slices; i++){
-        result += mode_features_to_json(features->slice[i]) + ",";
+        if (i > 0) {
+            result += ",";
+        }
+        result += mode_features_to_json(features->slice[i]);
 	}
 	
 	result += "], \"fibers\": [";
 
     for (int i = 0; i < num_modes_for_fibers; i++){
-        result += mode_features_to_json_fibers(features->fiber[i]) + ",";
+        if (i > 0) {
+            result += ",";
+        }
+        result += mode_features_to_json_fibers(features->fiber[i]);
 	}
 	
 	result += "], \"fibperslice\": [";
 
     for (int i = 0; i < num_modes_for_slices; i++){
-        result += mode_features_to_json(features->fps[i]) + ",";
+        if (i > 0) {
+            result += ",";
+        }
+        result += mode_features_to_json(features->fps[i]);
 	}
 	
 	// result += "\"ORG_DIM\":" + org_dim_to_json(T) ;
